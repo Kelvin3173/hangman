@@ -96,14 +96,26 @@ case 4:
     }
 
 void display_status(vector<char>incorrect, string guessed_word){
-    cout<<"Incorrect Guesses: \n";
+    cout<<"Incorrect Guesses: ";
     for (int i = 0; i < incorrect.size(); i++)
     {
        cout<< incorrect[i]<<" ";
     }
-    cout<<"\nCodeword: \n";
+    cout<<"\nCodeword: ";
     
-       cout<<guessed_word;
+       cout<<guessed_word << '\n';
     
     
+}
+
+void help(string word, string& guessed_word){
+    while(true) {
+        int pos = rand() % word.length();
+        char h =  word[pos];
+       
+        // if(guessed_word[pos] != '-') {
+            guessed_word[pos]=h;
+            break;
+                   }
+
 }
