@@ -14,7 +14,7 @@ int main(){
     int wrong_guess = 0;
     string need_help;
 
-    string topics[] = {"sport", "country", "food"};
+    string topics[] = {"sport", "country", "food", "education"};
     string topic;
     cout<<"Topics: ";
 
