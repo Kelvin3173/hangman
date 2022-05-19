@@ -81,8 +81,11 @@ void end_game(string guessed_word, string word, time_t time_started){
         else if( complete_time(time_started)<=40&& complete_time(time_started)>20){
             cout<<"\nYour point is: 60";
         }
-        else if( complete_time(time_started)>60){
+        else if( complete_time(time_started)>60&& complete_time(time_started)<=80){
             cout<<"\nYour point is: 50";
+        }
+        else if(complete_time(time_started)>80){
+            cout<<"\nYour point is: 0";
         }
     }
     
