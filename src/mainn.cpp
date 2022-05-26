@@ -11,21 +11,25 @@ using namespace std;
 int main(){
    
     string letter;
+    string level;
     int wrong_guess = 0;
     string need_help;
 
     string topics[] = {"sport", "country", "food", "education"};
     string topic;
+    
+    // choose_game_level(level);
     cout<<"Topics: ";
-
     cout << topics[0];
     for(int i = 1; i < sizeof(topics)/sizeof(topics[0]); i++) {
         cout << ", " << topics[i];
     }
     cout << "\nChoose your topic: ";
     cin >> topic;
-    
-    string word = choose_word(topic);
+    cout<<"Choose your game level:\n";
+    cout<<"hard     mediate    easy\n";
+    cin>>level;
+    string word = choose_word(topic,level);
     vector<char>incorrect;
     string guessed_word= string(word.length(),'-');
     for(int i = 0; i < word.length(); i++) {
@@ -42,7 +46,6 @@ int main(){
     while (guessed_word != word && wrong_guess<7)
     {      
         display(wrong_guess);
-
         cout << "You have " << help_count << " help left.\n";
 
         if(!no && help_count > 0) {
@@ -62,11 +65,11 @@ int main(){
             no = false;
             cout<<"Enter your guess: ";
             cin>>letter;
-            Guess(letter, word, guessed_word, wrong_guess,incorrect);  
+            Guess(letter, word, guessed_word, wrong_guess,incorrect); 
+            
         }
 
         display_status(incorrect, guessed_word);   
-        end_game(guessed_word, word, time_started);
     }
 
     if(guessed_word!=word){

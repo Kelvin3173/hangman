@@ -15,7 +15,8 @@ string getLowerCaseString(const string &s){
         return res;
 }
 
-string choose_word(string topic){
+// A function to choose a counting word
+string choose_word(string topic, string level){
     vector<string>wordList;
     string word;
     string path = topic + ".txt";
@@ -31,6 +32,15 @@ string choose_word(string topic){
         srand(time( NULL));
         int i= wordList.size();
         word=getLowerCaseString( wordList.at(rand()%i));
+    if(level=="hard"){
+        word.length()>=6;
+    }
+    else if(level== "mediate"){
+        word.length()>=3 && word.length()<6; 
+    }
+    else{
+        word.length()<3;
+    }
         return word;
     }
     else{
@@ -67,6 +77,7 @@ void Guess( string letter, string word,string &guessed_word, int& wrong_guess,ve
     guess=false;
 
 }
+
 
 void end_game(string guessed_word, string word, time_t time_started){
     if(guessed_word==word){
